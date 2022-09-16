@@ -252,5 +252,24 @@ class CampoTeste {
 		
 		
 	}
+	
+	@Test
+	void isLimpoAbertoNaoMarcado() {
+		
+		assertFalse(campo.isLimpo());
+		
+		campo.abrir();
+		assertTrue(campo.isLimpo());
+	}
+	
+	@Test
+	void isLimpoNaoAbertoMarcado() {
+		
+		campo.alternarMacacao();
+		assertTrue(campo.isLimpo());
+		
+		campo.alternarMacacao();
+		assertFalse(campo.isLimpo()); 
+	}
 
 }
