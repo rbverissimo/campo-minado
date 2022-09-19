@@ -27,7 +27,7 @@ public class Tabuleiro {
 	private void gerarCampos() {
 		
 		for (int i = 0; i < QtdeLinhas; i++) {
-			for(int j = 0; i < QtdeColunas; j++) {
+			for(int j = 0; j < QtdeColunas; j++) {
 				campos.add(new Campo(i, j));
 			}
 			
@@ -67,6 +67,28 @@ public class Tabuleiro {
 	public void reiniciarTabuleiro() {
 		campos.stream().forEach(c -> c.reiniciar());
 		sortearMinas();
+	}
+	
+	public String toString() {
+		
+		StringBuilder sb = new StringBuilder();
+		
+		int i = 0;
+		for (int l = 0; l < QtdeLinhas; l++) {
+			
+			for (int c = 0; c < QtdeColunas; c++) {
+				sb.append(" ");
+				sb.append(campos.get(i));
+				sb.append(" ");
+				i++;
+				
+			}
+			
+			sb.append("\n");
+			
+		}
+		
+		return sb.toString();
 	}
 	
 }
