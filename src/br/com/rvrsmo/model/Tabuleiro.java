@@ -22,6 +22,22 @@ public class Tabuleiro {
 		sortearMinas();
 		
 	}
+	
+	public void abrirCampo(int linha, int coluna) {
+		campos.parallelStream()
+		.filter(c -> c.getLINHA() == linha && c.getCOLUNA() == coluna)
+		.findFirst()
+		.ifPresent(c -> c.abrir());
+		
+	}
+	
+	public void marcarCampo(int linha, int coluna) {
+		campos.parallelStream()
+		.filter(c -> c.getLINHA() == linha && c.getCOLUNA() == coluna)
+		.findFirst()
+		.ifPresent(c -> c.alternarMacacao());
+		
+	}
 
 
 	private void gerarCampos() {
