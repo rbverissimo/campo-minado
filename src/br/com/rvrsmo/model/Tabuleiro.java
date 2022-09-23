@@ -23,6 +23,28 @@ public class Tabuleiro {
 		
 	}
 	
+	public Tabuleiro(int qtdeLinhas, int qtdeColunas) {
+		QtdeLinhas = qtdeLinhas;
+		QtdeColunas = qtdeColunas;
+		
+		gerarCampos();
+		associarVizinhos(); 
+		
+	}
+	
+	public boolean isCampoAberto(int linha, int coluna) {
+		return campos.parallelStream()
+				.filter(c -> c.getLINHA() == linha && c.getCOLUNA() == coluna)
+				.anyMatch(c -> c.isAberto()); 
+	}
+	
+	public boolean isCampoFechado(int linha, int coluna) {
+		return campos.parallelStream()
+				.filter(c -> c.getLINHA() == linha && c.getCOLUNA() == coluna)
+				.anyMatch(c -> c.isFechado()); 
+	}
+	
+	
 	public void abrirCampo(int linha, int coluna) {
 		campos.parallelStream()
 		.filter(c -> c.getLINHA() == linha && c.getCOLUNA() == coluna)
@@ -31,11 +53,31 @@ public class Tabuleiro {
 		
 	}
 	
+	public boolean isCampoMarcado(int linha, int coluna) {
+		return campos.parallelStream()
+				.filter(c -> c.getLINHA() == linha && c.getCOLUNA() == coluna)
+				.anyMatch(c -> c.isMarcado());
+	}
+	
 	public void marcarCampo(int linha, int coluna) {
 		campos.parallelStream()
 		.filter(c -> c.getLINHA() == linha && c.getCOLUNA() == coluna)
 		.findFirst()
 		.ifPresent(c -> c.alternarMacacao());
+		
+	}
+	
+	public boolean isCampoMinado(int linha, int coluna) {
+		return campos.parallelStream()
+		.filter(c -> c.getLINHA() == linha && c.getCOLUNA() == coluna)
+		.anyMatch(c -> c.isMinado());
+	}
+	
+	public void minarCampo(int linha, int coluna) {
+		campos.parallelStream()
+		.filter(c -> c.getLINHA() == linha && c.getCOLUNA() == coluna)
+		.findFirst()
+		.ifPresent(c -> c.setMinado());
 		
 	}
 
