@@ -23,7 +23,7 @@ public class Tabuleiro {
 		
 	}
 	
-	public Tabuleiro(int qtdeLinhas, int qtdeColunas) {
+	protected Tabuleiro(int qtdeLinhas, int qtdeColunas) {
 		QtdeLinhas = qtdeLinhas;
 		QtdeColunas = qtdeColunas;
 		
