@@ -62,8 +62,10 @@ public class TabuleiroTerminal {
 					tabuleiro.marcarCampo(linhaColuna.next(), linhaColuna.next());
 				}
 			}
+			System.out.println(tabuleiro);
 			System.out.println("Você ganhou");
 		} catch (ExplosaoException e) {
+			System.out.println(tabuleiro);
 			System.out.println("Você perdeu :(");
 		} 
 	}

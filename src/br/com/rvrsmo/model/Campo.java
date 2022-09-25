@@ -78,6 +78,17 @@ public class Campo {
 	}
 	
 	
+	
+	void setAberto(boolean aberto) {
+		this.aberto = aberto;
+	}
+
+
+	public void setVizinhos(List<Campo> vizinhos) {
+		this.vizinhos = vizinhos;
+	}
+
+
 	boolean vizinhoSeguro() {
 		return vizinhos.stream().noneMatch(v -> v.minado);
 	}
