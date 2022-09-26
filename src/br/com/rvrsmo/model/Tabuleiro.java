@@ -139,8 +139,20 @@ public class Tabuleiro {
 		
 		StringBuilder sb = new StringBuilder();
 		
+		sb.append(" ");
+		
+		for(int c = 0; c < QtdeColunas; c++) {
+			sb.append(" ");
+			sb.append(c);
+			sb.append(" ");
+		}
+		
+		sb.append("\n"); 
+		
 		int i = 0;
 		for (int l = 0; l < QtdeLinhas; l++) {
+			sb.append(l);
+			sb.append("");
 			
 			for (int c = 0; c < QtdeColunas; c++) {
 				sb.append(" ");
